@@ -16,7 +16,7 @@ class Product(models.Model):
     description = models.CharField(max_length=255, default='n/a')
     price = models.IntegerField(default='n/a')
     unit = models.CharField(max_length=20, default='lbs')
-    total_quantity = models.IntegerField(default='0')
+    total_quantity = models.IntegerField(default=0)
     order_quantity = models.IntegerField(default='0')
     product_pic_url = models.CharField(max_length=255, default='n/a')
     tag = models.CharField(max_length=30, default='n/a')
