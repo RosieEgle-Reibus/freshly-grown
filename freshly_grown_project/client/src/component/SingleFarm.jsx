@@ -70,7 +70,15 @@ export default class SingleFarm extends Component {
 
     createNewProduct = (event) => {
         event.preventDefault()
-        axios.post('/api/v1/product/', this.state.newProduct)
+        const newProduct = {
+        }
+        Object.entries(this.state.newProduct).forEach(([key, value]) => {
+            if(value === '') {
+                newProduct[key] = value
+            }
+        });
+        console.log('newProduct', newProduct)
+        axios.post('/api/v1/product/', newProduct)
         .then(() => {
             this.refreshSingleFarm()
         })
@@ -137,6 +145,7 @@ export default class SingleFarm extends Component {
                 <img src={this.state.farm_pic_url} width="200"/>
                 <SingleProduct
                         farm={this.state}
+                        refreshSingleFarm = {this.refreshSingleFarm}
                     />
                 <h1>Add New Product</h1>
                 <form>

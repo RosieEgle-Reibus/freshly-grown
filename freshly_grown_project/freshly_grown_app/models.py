@@ -14,10 +14,10 @@ class Farm(models.Model):
 class Product(models.Model):
     name = models.CharField(max_length=100, default='n/a')
     description = models.CharField(max_length=255, default='n/a')
-    price = models.IntegerField(default='n/a')
+    price = models.IntegerField(default=0)
     unit = models.CharField(max_length=20, default='lbs')
-    total_quantity = models.IntegerField(default=0)
-    order_quantity = models.IntegerField(default='0')
+    total_quantity = models.CharField(max_length=20, default='0')
+    order_quantity = models.IntegerField(max_length=20,default=0)
     product_pic_url = models.CharField(max_length=255, default='n/a')
     tag = models.CharField(max_length=30, default='n/a')
     farm = models.ForeignKey(Farm, on_delete=models.CASCADE, related_name= 'products')
