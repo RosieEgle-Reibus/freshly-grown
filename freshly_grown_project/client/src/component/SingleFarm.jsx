@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import SingleProduct from './SingleProduct'
+import { Redirect } from 'react-router-dom' 
 
 export default class SingleFarm extends Component {
     state = {
@@ -16,7 +17,8 @@ export default class SingleFarm extends Component {
             location: '',
             farm_pic_url: '',
             products: [],
-        }
+        },
+        redirect: false,
     }
     componentDidMount() {
         const farmId = this.props.match.params.farmId
@@ -43,13 +45,24 @@ export default class SingleFarm extends Component {
             this.refreshSingleFarm()
         })
     }
-
     onChangeFarmForm = (event) => {
         const previousState = { ...this.state.changeFarm }
         previousState[event.target.name] = event.target.value
         this.setState({changeFarm: previousState})
     }
+    onFarmDeleteClick = () => {
+        const farmId = this.props.match.params.farmId
+        axios.delete(`/api/v1/farm/${farmId}/`)
+        .then(() => {
+            this.setState({redirect : true})
+        })  
+    }
+
+
     render() {
+        if (this.state.redirect === true) {
+            return <Redirect to="/farm" />
+        }
         return (
             <div>
                 <form >
@@ -90,8 +103,10 @@ export default class SingleFarm extends Component {
                         value="Save Changes"
                         onClick={this.changeSingleFarm}
                     />
-
                 </form>
+
+                <button onClick={() => this.onFarmDeleteClick()}>Delete Farm</button>
+
                 <h1>{this.state.name}</h1>
                 <h1>{this.state.description}</h1>
                 <h2>{this.state.location}</h2>
