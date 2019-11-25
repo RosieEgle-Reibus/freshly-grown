@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import { Redirect } from 'react-router-dom'
 
 export default class SingleProductPage extends Component {
     state = {
@@ -14,7 +15,8 @@ export default class SingleProductPage extends Component {
             product_pic_url: '',
             tag: '',
             farm: ''
-        }
+        },
+        redirect: false
 
     }
 
@@ -28,17 +30,16 @@ export default class SingleProductPage extends Component {
     }
     refreshSingleProductPage = () => {
         const productId = this.props.match.params.productId
-        axios.get(`/api/v1/product/${productId}/`)
+        axios.get(`/api/v1/product/${productId}`)
             .then((res) => {
                 console.log(res.data)
-                this.setState(res.data)
+                this.setState({changeProduct: res.data})
             })
     }
-
     editSingleProduct = (event) => {
         event.preventDefault()
         const productId = this.props.match.params.productId
-        axios.put(`/api/v1/product/${productId}`, this.state.changeProduct)
+        axios.put(`/api/v1/product/${productId}/`, this.state.changeProduct)
             .then(() => {
                 this.refreshSingleProductPage()
             })
@@ -49,15 +50,23 @@ export default class SingleProductPage extends Component {
         previousState[event.target.name] = event.target.value
         this.setState({ changeProduct: previousState })
     }
-
+    onProductDeleteClick = () => {
+        const productId = this.props.match.params.productId
+        axios.delete(`/api/v1/product/${productId}`)
+        .then(() => {
+            this.setState({redirect: true})
+        })
+    } 
     render() {
+        if (this.state.redirect === true)  {
+            return <Redirect to="/farm" />
+        }
         return (
             <div>
             <h1>{this.state.changeProduct.name}</h1>
             <h2>{this.state.changeProduct.description}</h2>
+            <button onClick={() => this.onProductDeleteClick()}>Delete Product</button>
             <form>
-                
-            
                 <input
                         type="string"
                         placeholder="Product Name"
