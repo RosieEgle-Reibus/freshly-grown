@@ -4,6 +4,7 @@ import AllFarms from './component/AllFarms'
 import axios from 'axios'
 import React, { Component } from 'react'
 import ShopMain from './component/ShopMain.jsx'
+import SingleFarm from './component/SingleFarm'
 
 
 export default class App extends Component {
@@ -28,21 +29,22 @@ export default class App extends Component {
 
         <div className="App">
           <h1>Freshly Grown</h1>
-          <Link to={`/farms`}>
-            <h1>Farms</h1>
+          <Link to={`/farm`}>
+            <h3>Farms</h3>
           </Link>
           <Link to={`/`}>
-            <h1>Home</h1>
+            <h3>Home</h3>
           </Link>
           
 
         </div>
         <Switch>
-          <Link>
+         
             <Route exact path='/' component={ShopMain} />
-            <Route exact path='/farms' component={AllFarms} />
+            <Route exact path='/farm' component={AllFarms} />
+            <Route exact path="/farm/:farmId" component={SingleFarm} />
 
-          </Link>
+       
 
         </Switch>
       </Router>

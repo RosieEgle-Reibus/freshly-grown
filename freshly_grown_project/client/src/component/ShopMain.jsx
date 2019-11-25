@@ -5,8 +5,7 @@ import {Link} from 'react-router-dom'
 
 export default class ShopMain extends Component {
     state = {
-        allFarms: [],
-        
+        allFarms: [], 
       }
     componentDidMount() {
         axios.get('/api/v1/farm')
@@ -20,6 +19,7 @@ export default class ShopMain extends Component {
     render() {
         return (
             <div>
+
                  {this.state.allFarms.map((farm) => {
             return (
               <div className="App">
