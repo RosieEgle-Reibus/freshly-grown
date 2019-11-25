@@ -28,7 +28,6 @@ export default class SingleProduct extends Component {
             tag
         } = this.props
 
-        console.log({name})
         return (
             <div className="single-product">
                 {farm.products.map((product) => {
