@@ -1,15 +1,10 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import SingleProduct from './SingleProduct'
+import MapSingleProduct from './MapSingleProduct'
 import { Redirect } from 'react-router-dom' 
 
 export default class SingleFarm extends Component {
     state = {
-        name: '',
-        description: '',
-        location: '',
-        farm_pic_url: '',
-        products: [],
         changeFarm: {
             farmId: '',
             name: '',
@@ -35,7 +30,7 @@ export default class SingleFarm extends Component {
         axios.get(`/api/v1/farm/${farmId}`)
             .then((res) => {
                 console.log(res.data)
-                this.setState(res.data)
+                this.setState({changeFarm: res.data})
             })
     }
 
@@ -139,12 +134,12 @@ export default class SingleFarm extends Component {
 
                 <button onClick={() => this.onFarmDeleteClick()}>Delete Farm</button>
 
-                <h1>{this.state.name}</h1>
-                <h1>{this.state.description}</h1>
-                <h2>{this.state.location}</h2>
-                <img src={this.state.farm_pic_url} width="200"/>
-                <SingleProduct
-                        farm={this.state}
+                <h1>{this.state.changeFarm.name}</h1>
+                <h1>{this.state.changeFarm.description}</h1>
+                <h2>{this.state.changeFarm.location}</h2>
+                <img src={this.state.changeFarm.farm_pic_url} width="200"/>
+                <MapSingleProduct
+                        farm={this.state.changeFarm}
                         refreshSingleFarm = {this.refreshSingleFarm}
                     />
                 <h1>Add New Product</h1>

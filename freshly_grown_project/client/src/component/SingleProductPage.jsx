@@ -53,8 +53,8 @@ export default class SingleProductPage extends Component {
     render() {
         return (
             <div>
-            <h1>{this.state.name}</h1>
-            <h2>{this.state.description}</h2>
+            <h1>{this.state.changeProduct.name}</h1>
+            <h2>{this.state.changeProduct.description}</h2>
             <form>
                 
             

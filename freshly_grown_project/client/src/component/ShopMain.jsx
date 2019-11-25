@@ -1,11 +1,21 @@
 import React, { Component } from 'react'
-import SingleProduct from './SingleProduct.jsx'
+import MapSingleProduct from './MapSingleProduct.jsx'
 import axios from 'axios'
 import {Link} from 'react-router-dom'
 
 export default class ShopMain extends Component {
     state = {
-        allFarms: [], 
+        allFarms: [],
+        changeProduct: {
+            name: '',
+            description: '',
+            price: '',
+            unit: '',
+            total_quantity: '',
+            product_pic_url: '',
+            tag: '',
+            farm: this.props.match.params.farmId
+        } 
       }
     componentDidMount() {
         axios.get('/api/v1/farm')
@@ -26,7 +36,7 @@ export default class ShopMain extends Component {
                 <Link to={`/farm/${farm.id}`}>
                   <h1>{farm.name}</h1>
                 </Link>
-                <SingleProduct
+                <MapSingleProduct
                     farm={farm}
                     productId={farm.products.id}
                     name = {farm.products.name}
