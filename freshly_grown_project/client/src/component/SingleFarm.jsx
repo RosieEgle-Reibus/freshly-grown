@@ -39,7 +39,7 @@ export default class SingleFarm extends Component {
         axios.get(`/api/v1/farm/${farmId}`)
         .then((res) => {
             console.log(res.data)
-            this.setState(res.data)
+            this.setState({changeFarm: res.data})
         })
     }
     changeSingleFarm = (event) => {
@@ -65,15 +65,15 @@ export default class SingleFarm extends Component {
 
     createNewProduct = (event) => {
         event.preventDefault()
-        const newProduct = {
-        }
-        Object.entries(this.state.newProduct).forEach(([key, value]) => {
-            if(value === '') {
-                newProduct[key] = value
-            }
-        });
-        console.log('newProduct', newProduct)
-        axios.post('/api/v1/product/', newProduct)
+        // const newProduct = {
+        // }
+        // Object.entries(this.state.newProduct).forEach(([key, value]) => {
+        //     if(value === '') {
+        //         newProduct[key] = value
+        //     }
+        // });
+        console.log('newProduct', this.state.newProduct)
+        axios.post('/api/v1/product/', this.state.newProduct)
         .then(() => {
             this.refreshSingleFarm()
         })
@@ -198,6 +198,14 @@ export default class SingleFarm extends Component {
                         id="tag"
                         value={this.state.newProduct.tag}
                         name="tag"
+                        onChange={this.onCreateProductForm}
+                    />
+                <input
+                        type="string"
+                        placeholder="FarmId"
+                        id="farmId"
+                        value={this.props.match.params.farmId}
+                        name="farm"
                         onChange={this.onCreateProductForm}
                     />
                 <input

@@ -59,7 +59,7 @@ export default class SingleProductPage extends Component {
     } 
     render() {
         if (this.state.redirect === true)  {
-            return <Redirect to="/farm" />
+            return <Redirect to={`/farm/${this.state.changeProduct.farm}`} />
         }
         return (
             <div>
