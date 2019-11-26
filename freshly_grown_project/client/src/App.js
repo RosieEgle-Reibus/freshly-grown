@@ -8,6 +8,8 @@ import SingleFarm from './component/SingleFarm'
 import SingleProductPage from './component/SingleProductPage'
 import AllRestaurants from './component/AllRestaurants'
 import CreateRestaurantForm from './component/CreateRestaurantForm'
+import SingleRestaurant from './component/SingleRestaurant'
+import EditRestaurantForm from './component/EditRestaurantForm'
 
 
 export default class App extends Component {
@@ -51,6 +53,8 @@ export default class App extends Component {
           <Route exact path="/product/:productId" component={SingleProductPage} />
           <Route exact path='/restaurant' component={AllRestaurants} />
           <Route exact path='/restaurant/new' component={CreateRestaurantForm} />
+          <Route exact path='/restaurant/:restaurantId' component={SingleRestaurant} />
+          <Route exact path='/restaurant/edit/:restaurantId' component={EditRestaurantForm} />
 
 
 
