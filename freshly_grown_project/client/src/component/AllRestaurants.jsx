@@ -25,6 +25,7 @@ export default class AllRestaurants extends Component {
                         </div>
                     )
                 })}
+                <Link to={'/restaurant/new'}>Add New Restaurant</Link>
                 
             </div>
         )
