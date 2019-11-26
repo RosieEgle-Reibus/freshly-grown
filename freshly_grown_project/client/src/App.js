@@ -11,6 +11,8 @@ import CreateRestaurantForm from './component/CreateRestaurantForm'
 import SingleRestaurant from './component/SingleRestaurant'
 import EditRestaurantForm from './component/EditRestaurantForm'
 import InPerson from './component/InPerson'
+import EditFarmForm from './component/EditFarmForm'
+
 
 
 export default class App extends Component {
@@ -56,6 +58,7 @@ export default class App extends Component {
           <Route exact path='/restaurant/:restaurantId' component={SingleRestaurant} />
           <Route exact path='/restaurant/edit/:restaurantId' component={EditRestaurantForm} />
           <Route exact path='/markets' component={InPerson}/>
+          <Route exact path='/farm/edit/:farmId' component={EditFarmForm} />
 
 
 

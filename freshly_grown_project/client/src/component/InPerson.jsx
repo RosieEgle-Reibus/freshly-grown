@@ -8,14 +8,7 @@ export default class InPerson extends Component {
         zip: ''
 
     }
-    // componentDidMount() {
-    //     axios.get(`http://search.ams.usda.gov/farmersmarkets/v1/data.svc/zipSearch?zip=${this.state.zip}`)
-    //     .then((res) => {
-    //         console.log(res.data)
-    //         this.setState(res.data)
-    //     })
-    // }
-
+  
     onChangeZipForm = (event) => {
         const previousState =  {...this.state.zip}
         previousState[event.target.name] = event.target.value
@@ -55,7 +48,6 @@ export default class InPerson extends Component {
                 {this.state.results.map((market) => {
                     return(
                         <div>
-                            Heyo x 2
                             <h1>{market.marketname}</h1>
                             </div>
                     )
