@@ -10,12 +10,13 @@ import AllRestaurants from './component/AllRestaurants'
 import CreateRestaurantForm from './component/CreateRestaurantForm'
 import SingleRestaurant from './component/SingleRestaurant'
 import EditRestaurantForm from './component/EditRestaurantForm'
+import InPerson from './component/InPerson'
 
 
 export default class App extends Component {
   state = {
     allFarms: [],
-    productList: []
+    
   }
   componentDidMount() {
     axios.get('/api/v1/farm')
@@ -23,10 +24,8 @@ export default class App extends Component {
         console.log(res.data)
         const allFarms = res.data
         this.setState({ allFarms: allFarms })
-
       })
   }
-
 
   render() {
     return (
@@ -41,6 +40,7 @@ export default class App extends Component {
             <h3>Home</h3>
           </Link>
           <Link to={'/restaurant'}>Restaurants</Link>
+          <Link to={'/markets'}>Markets</Link>
 
 
 
@@ -55,6 +55,7 @@ export default class App extends Component {
           <Route exact path='/restaurant/new' component={CreateRestaurantForm} />
           <Route exact path='/restaurant/:restaurantId' component={SingleRestaurant} />
           <Route exact path='/restaurant/edit/:restaurantId' component={EditRestaurantForm} />
+          <Route exact path='/markets' component={InPerson}/>
 
 
 
