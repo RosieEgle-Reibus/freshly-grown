@@ -36,11 +36,10 @@ export default class EditRestaurantForm extends Component {
     }
     render() {
         if (this.state.redirect === true) {
-            return <Redirect to={`/restaurant/${this.state.changeRestaurant.restaurantId}`} />
+            return <Redirect to={`/restaurant/${this.props.match.params.restaurantId}`} />
         }
         return (
             <div>
-                Heyo
                 <form>
                 <input
                         type="string"

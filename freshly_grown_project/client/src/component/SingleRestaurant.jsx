@@ -1,6 +1,6 @@
 import React, { Component} from 'react'
 import axios from 'axios'
-import { Link } from 'react-router-dom'
+import { Link, Redirect} from 'react-router-dom'
 
 export default class SingleRestaurant extends Component {
     state = {
@@ -8,7 +8,8 @@ export default class SingleRestaurant extends Component {
             name: '',
             description: '',
             location: '',
-            farm_pic_url: ''
+            farm_pic_url: '',
+            redirect: false
     }
     componentDidMount() {
         const restaurantId = this.props.match.params.restaurantId
@@ -18,11 +19,24 @@ export default class SingleRestaurant extends Component {
             this.setState(res.data)
         })
     }
+    onRestaurantDeleteClick = () => {
+        const restaurantId = this.props.match.params.restaurantId 
+        axios.delete(`/api/v1/restaurant/${restaurantId}/`)
+        .then(() => {
+            this.setState({redirect: true})
+        })
+    }
     render() {
+        if (this.state.redirect === true) {
+           return <Redirect to="/restaurant" />
+        }
         return (
             <div>
                {this.state.name}
             <Link to={`/restaurant/edit/${this.props.match.params.restaurantId}`}>Edit</Link>
+            <button onClick={() => {
+                this.onRestaurantDeleteClick()
+            }}>Delete Restaurant</button>
             </div>
         )
     }
