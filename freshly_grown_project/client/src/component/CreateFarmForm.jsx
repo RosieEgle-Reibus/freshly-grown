@@ -1,47 +1,36 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import { Link } from 'react-router-dom'
+import { Redirect } from 'react-router-dom' 
 
-
-
-export default class AllFarms extends Component {
+export default class CreateFarmForm extends Component {
     state = {
-        allFarms: [],
-       
+        newFarm: {
+        name: '',
+        description: '',
+        location: '',
+        farm_pic_url: ''
+        },
+        redirect: false
     }
-    componentDidMount() {
-        axios.get('/api/v1/farm')
-            .then((res) => {
-                console.log(res.data)
-            
-                this.setState({ allFarms: res.data})
+    createNewFarm = (event) => {
+        event.preventDefault()
+        axios.post('/api/v1/farm/', this.state.newFarm)
+            .then(() => {
+                this.setState({redirect: true})
             })
     }
-    refreshAllFarmsComponent = () => {
-        axios.get('/api/v1/farm')
-            .then((res) => {
-                console.log(res.data)
-                this.setState({ allFarms: res.data })
-            })
+    onChangeFarmForm = (event) => {
+        const previousState = { ...this.state.newFarm }
+        previousState[event.target.name] = event.target.value
+        this.setState({newFarm: previousState})
     }
-    // createNewFarm = (event) => {
-    //     event.preventDefault()
-    //     axios.post('/api/v1/farm/', this.state.newFarm)
-    //         .then(() => {
-    //             this.refreshAllFarmsComponent()
-    //         })
-    // }
-
-    // onChangeFarmForm = (event) => {
-    //     const previousState = { ...this.state.newFarm }
-    //     previousState[event.target.name] = event.target.value
-    //     this.setState({newFarm: previousState})
-    // }
-
     render() {
+        if (this.state.redirect === true) {
+            return <Redirect to='/farm'/>
+        }
         return (
             <div>
-                {/* <form>
+                   <form>
                     <input
                         type="string"
                         placeholder="Farm Name"
@@ -79,17 +68,8 @@ export default class AllFarms extends Component {
                         value="Add New Farm"
                         onClick={this.createNewFarm}
                     />
-                </form> */}
-                {this.state.allFarms.map((farm) => {
-                    return (
-                        <div className="App">
-                            <Link to={`/farm/${farm.id}`}>
-                                <h1>{farm.name}</h1>
-                            </Link>
-                        </div>
-                    )
-                })}
-                <button><Link to='/farm/new'>Add Your Farm</Link></button>
+                </form>
+                
             </div>
         )
     }

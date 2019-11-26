@@ -12,6 +12,7 @@ import SingleRestaurant from './component/SingleRestaurant'
 import EditRestaurantForm from './component/EditRestaurantForm'
 import InPerson from './component/InPerson'
 import EditFarmForm from './component/EditFarmForm'
+import CreateFarmForm from './component/CreateFarmForm'
 
 
 
@@ -51,6 +52,7 @@ export default class App extends Component {
 
           <Route exact path='/' component={ShopMain} />
           <Route exact path='/farm' component={AllFarms} />
+          <Route exact path='/farm/new' component={CreateFarmForm} />
           <Route exact path="/farm/:farmId" component={SingleFarm} />
           <Route exact path="/product/:productId" component={SingleProductPage} />
           <Route exact path='/restaurant' component={AllRestaurants} />
@@ -59,8 +61,7 @@ export default class App extends Component {
           <Route exact path='/restaurant/edit/:restaurantId' component={EditRestaurantForm} />
           <Route exact path='/markets' component={InPerson}/>
           <Route exact path='/farm/edit/:farmId' component={EditFarmForm} />
-
-
+          
 
         </Switch>
       </Router>
