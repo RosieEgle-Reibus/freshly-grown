@@ -1,26 +1,66 @@
-.App {
+* {
+  margin: 0, auto;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
+body {
+  height: 100%;
+  
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.parallax {
+  background-image: url('./images/vegetable-trial.jpg');
+  height: 500px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.experiment {
+  height: 500px;
+  background-image: url('./images/vegetable-trial.jpg');
+  font-size: 70px;
+  font-weight: 700;
+  color: transparent;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  
+}
+
+header {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  background-color: lightpink;
+  justify-content: space-between;
+}
+
+.header-title {
+  font-family: 'Fjalla One', sans-serif;
+  font-size: 60px;
+  background-color: lightseagreen;
+  margin: 0, auto;
   color: white;
 }
 
-.App-link {
-  color: #09d3ac;
+.header-title-grown {
+  font-family: 'Fjalla One', sans-serif;
+  font-size: 80px;
+  background-color: lightseagreen;
+  margin: auto;
+  color: white;
 }
 
-.single-product {
-  background-color: lightseagreen;
+.title-container {
+  display: flex;
+  flex-direction: column;
+  margin: 0, auto;
+  background-color: lightsalmon;
+}
+
+.nav-container {
+  display: flex;
+}
+
+nav {
+  background-color: lightgoldenrodyellow;
 }

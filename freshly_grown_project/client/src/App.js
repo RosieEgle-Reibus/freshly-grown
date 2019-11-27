@@ -19,7 +19,7 @@ import CreateFarmForm from './component/CreateFarmForm'
 export default class App extends Component {
   state = {
     allFarms: [],
-    
+
   }
   componentDidMount() {
     axios.get('/api/v1/farm')
@@ -35,17 +35,30 @@ export default class App extends Component {
       <Router>
 
         <div className="App">
-          <h1>Freshly Grown</h1>
-          <Link to={`/farm`}>
-            <h3>Farms</h3>
-          </Link>
-          <Link to={`/`}>
-            <h3>Home</h3>
-          </Link>
-          <Link to={'/restaurant'}>Restaurants</Link>
-          <Link to={'/markets'}>Markets</Link>
+          <header>
+            <div className="title-container">
+              <h1 className="header-title">Freshly</h1>
+              <h1 className="header-title-grown">Grown</h1>
+            </div>
+            <div className="nav-contianer">
+            <nav>
+              <Link to={`/farm`}>
+                <h3>Farms</h3>
+              </Link>
+              <Link to={`/`}>
+                <h3>Home</h3>
+              </Link>
+              <Link to={'/restaurant'}><h3>Restaurants</h3></Link>
+              <Link to={'/markets'}><h3>Markets</h3></Link>
+            </nav>
+            </div>
+          </header>
 
+          <div className="parallax">It's a paradox parallax</div>
 
+          <div className="experiment">ExperimentYAAY</div>
+
+          <div className="parallax"></div>
 
         </div>
         <Switch>
@@ -59,9 +72,9 @@ export default class App extends Component {
           <Route exact path='/restaurant/new' component={CreateRestaurantForm} />
           <Route exact path='/restaurant/:restaurantId' component={SingleRestaurant} />
           <Route exact path='/restaurant/edit/:restaurantId' component={EditRestaurantForm} />
-          <Route exact path='/markets' component={InPerson}/>
+          <Route exact path='/markets' component={InPerson} />
           <Route exact path='/farm/edit/:farmId' component={EditFarmForm} />
-          
+
 
         </Switch>
       </Router>
