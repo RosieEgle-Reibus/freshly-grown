@@ -29,6 +29,13 @@ export default class ShopMain extends Component {
     render() {
         return (
             <div>
+                
+                <div className="parallax">It's a paradox parallax</div>
+
+          
+
+          
+
 
                  {this.state.allFarms.map((farm) => {
             return (
@@ -51,6 +58,9 @@ export default class ShopMain extends Component {
               </div>
             )
           })}
+
+<div className="parallax"></div>
+
             </div>
         )
     }

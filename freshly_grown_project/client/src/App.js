@@ -37,8 +37,10 @@ export default class App extends Component {
         <div className="App">
           <header>
             <div className="title-container">
+              <div className="header-title-container">
               <h1 className="header-title">Freshly</h1>
-              <h1 className="header-title-grown">Grown</h1>
+              <h1 className="header-title">Grown</h1>
+            </div>
             </div>
             <div className="nav-contianer">
             <nav>
@@ -54,11 +56,10 @@ export default class App extends Component {
             </div>
           </header>
 
-          <div className="parallax">It's a paradox parallax</div>
+       <div className="parallax">It's a paradox parallax</div>
+         <div className="experiment">ExperimentYAAY</div>
 
-          <div className="experiment">ExperimentYAAY</div>
-
-          <div className="parallax"></div>
+         <div className="parallax"></div> 
 
         </div>
         <Switch>

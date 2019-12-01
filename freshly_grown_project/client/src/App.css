@@ -5,6 +5,7 @@
 
 body {
   height: 100%;
+  background-color: #757575;
   
 }
 
@@ -18,7 +19,7 @@ body {
 }
 
 .experiment {
-  height: 500px;
+  height: 500px; 
   background-image: url('./images/vegetable-trial.jpg');
   font-size: 70px;
   font-weight: 700;
@@ -30,31 +31,44 @@ body {
 
 header {
   display: flex;
-  background-color: lightpink;
   justify-content: space-between;
+  height: 800px;
 }
+
+/* .header-title-container {
+  display: block;
+  margin: 0, auto; 
+  background-color: lightskyblue;
+  height: 400px;
+  width: 400px; 
+  
+  align-items: center;
+  justify-content: center;
+} */
 
 .header-title {
-  font-family: 'Fjalla One', sans-serif;
-  font-size: 60px;
-  background-color: lightseagreen;
+  font-family: 'EB Garamond', serif;
+  font-size: 120px;
   margin: 0, auto;
   color: white;
-}
+  text-align: center;
+  /* align-items: center;
+  justify-content: center; */
+  line-height: 50%;
 
-.header-title-grown {
-  font-family: 'Fjalla One', sans-serif;
-  font-size: 80px;
-  background-color: lightseagreen;
-  margin: auto;
-  color: white;
 }
 
 .title-container {
   display: flex;
-  flex-direction: column;
-  margin: 0, auto;
-  background-color: lightsalmon;
+  margin: 175px;
+  justify-content: center;
+  align-items: center; 
+  border: solid 10px white;
+  padding: 20px;
+  height: 400px;
+  width: 400px;
+  
+  
 }
 
 .nav-container {
