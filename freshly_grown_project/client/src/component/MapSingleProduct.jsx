@@ -12,14 +12,16 @@ export default class MapSingleProduct extends Component {
         } = this.props
 
         return (
-            <div className="single-product">
+            <div className="all-products-container">
                 {farm.products.map((product) => {
                     return (
-                        <div>
+                        <div className="single-product-container">
+                        <div className="single-product-divide">
                         <Link to={`/product/${product.id}`}>
                         <h1>{product.name}</h1>
                         </Link>
                         <h2>{product.description}</h2>
+                        </div>
                         </div>
                 )
                 })}

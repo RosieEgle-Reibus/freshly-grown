@@ -9,9 +9,16 @@ body {
   
 }
 
+a {
+  text-decoration: none;
+  color: white;
+}
+
+/* Parallax */
 .parallax {
+  
   background-image: url('./images/vegetable-trial.jpg');
-  height: 500px;
+  height: 300px;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -28,7 +35,6 @@ body {
   -webkit-text-fill-color: transparent;
   
 }
-
 
 /* Header Styles */
 
@@ -70,17 +76,10 @@ header {
   border: none;
 }
 
-/* .drop-container {
-  display: flex;
-  background-color: lightgreen;
-  margin: 0 auto;
-  width: 200px;
-  height: 100%;
-} */
-
-.try {
+.navbar {
   width: 150px;
   margin: 20px;
+  
 }
 
 .drop-content {
@@ -106,8 +105,105 @@ header {
   display: block;
 }
 
-a {
+ header a {
   text-decoration: none;
   color: white;
 }
 
+/* Store */
+.store-container {
+  /* background-color: white; */
+  margin: 0, auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Fancy Buttons Maybe */
+.anim-button{
+  background-color: transparent;
+  border: none;  
+  position: relative;
+  border: 2px solid white;
+  margin: 0px 100px 0px 100px;
+  text-align: left;
+  width: 25vw
+} 
+
+.anim-button a {
+  font-size: 20px;
+  text-transform: uppercase; 
+  font-family: 'Open Sans Condensed', sans-serif;
+  text-align: left;
+
+}
+.anim-button:hover {
+  
+  background-color: white;
+}
+
+.anim-button a:hover {
+  color: #757575;
+  background-color: white;
+  
+}
+
+/* .button-horizontal {
+  border: 2px solid red;
+  padding: 20px;
+  position: absolute;
+
+}
+
+.button-vertical {
+  border: 2px solid blue;
+  padding: 30px;
+  position: absolute;
+} */
+
+
+/* Farm Map Styles */
+.farm-map-container {
+  margin: 20px, auto;
+}
+
+.farm-name-container {
+  display: flex;
+  /* background-color: lightpink; */
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  margin: 20px, auto;
+}
+
+hr {
+  border: solid 1px white;
+  width: 75vw;
+  margin: 0px 50px;
+  margin-left: -30px;
+}
+
+/* Individual Product Styles */
+
+.all-products-container {
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 70vw;
+  /* background-color: lightpink; */
+}
+
+
+.single-product-container {
+  background-color: white;
+  margin: 50px;
+  width: 275px;
+  height: 400px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.single-product-container a {
+  color: #000;
+  margin: 50px;
+  font-family: 'Open Sans Condensed', sans-serif;
+}

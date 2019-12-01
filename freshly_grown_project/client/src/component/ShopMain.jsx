@@ -28,21 +28,24 @@ export default class ShopMain extends Component {
 
     render() {
         return (
-            <div>
+            <div className="store-container">
                 
                 <div className="parallax">It's a paradox parallax</div>
-
-          
-
-          
 
 
                  {this.state.allFarms.map((farm) => {
             return (
-              <div className="App">
-                <Link to={`/farm/${farm.id}`}>
+              <div className="farm-map-container">
+                <div className="farm-name-container">
+                <button className="anim-button">
+                  <Link to={`/farm/${farm.id}`}>
                   <h1>{farm.name}</h1>
                 </Link>
+                {/* <div className="button-horizontal"></div>
+                <div className="button-vertical"></div> */}
+                </button>
+                <hr></hr>
+                </div>
                 <MapSingleProduct
                     farm={farm}
                     productId={farm.products.id}

@@ -56,7 +56,7 @@ export default class App extends Component {
             </div>
             </div>
             <div className="drop-contianer"onMouseEnter={this.showMenu} onMouseLeave={this.closeMenu}>
-              <div className="try">
+              <div className="navbar">
               <button className="drop-menu-button" >Menu</button>
               {this.state.showMenu ?
             <div className="drop-content">
