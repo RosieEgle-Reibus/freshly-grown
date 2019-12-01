@@ -19,6 +19,7 @@ import CreateFarmForm from './component/CreateFarmForm'
 export default class App extends Component {
   state = {
     allFarms: [],
+    showMenu: false
 
   }
   componentDidMount() {
@@ -29,6 +30,18 @@ export default class App extends Component {
         this.setState({ allFarms: allFarms })
       })
   }
+
+  showMenu = (event) => {
+    event.preventDefault()
+    this.setState({showMenu: true}
+    )
+  }
+
+   closeMenu = () => {
+     
+     this.setState({showMenu: false}
+     )
+   }
 
   render() {
     return (
@@ -42,8 +55,11 @@ export default class App extends Component {
               <h1 className="header-title">Grown</h1>
             </div>
             </div>
-            <div className="nav-contianer">
-            <nav>
+            <div className="drop-contianer"onMouseEnter={this.showMenu} onMouseLeave={this.closeMenu}>
+              <div className="try">
+              <button className="drop-menu-button" >Menu</button>
+              {this.state.showMenu ?
+            <div className="drop-content">
               <Link to={`/farm`}>
                 <h3>Farms</h3>
               </Link>
@@ -52,14 +68,15 @@ export default class App extends Component {
               </Link>
               <Link to={'/restaurant'}><h3>Restaurants</h3></Link>
               <Link to={'/markets'}><h3>Markets</h3></Link>
-            </nav>
+            </div> :  null }
+            </div>
             </div>
           </header>
 
-       <div className="parallax">It's a paradox parallax</div>
+       {/* <div className="parallax">It's a paradox parallax</div>
          <div className="experiment">ExperimentYAAY</div>
 
-         <div className="parallax"></div> 
+         <div className="parallax"></div>  */}
 
         </div>
         <Switch>

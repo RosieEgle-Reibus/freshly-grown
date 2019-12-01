@@ -29,31 +29,22 @@ body {
   
 }
 
+
+/* Header Styles */
+
 header {
   display: flex;
   justify-content: space-between;
   height: 800px;
 }
 
-/* .header-title-container {
-  display: block;
-  margin: 0, auto; 
-  background-color: lightskyblue;
-  height: 400px;
-  width: 400px; 
-  
-  align-items: center;
-  justify-content: center;
-} */
-
+/* Title Styles */
 .header-title {
   font-family: 'EB Garamond', serif;
   font-size: 120px;
   margin: 0, auto;
   color: white;
   text-align: center;
-  /* align-items: center;
-  justify-content: center; */
   line-height: 50%;
 
 }
@@ -66,15 +57,57 @@ header {
   border: solid 10px white;
   padding: 20px;
   height: 400px;
-  width: 400px;
-  
-  
+  width: 400px; 
 }
 
-.nav-container {
+/* Nav Drop Down Styles */
+.drop-menu-button {
+  background-color: transparent;
+  color: white;
+  padding: 15px;
+  font-size: 36px;
+  font-family: 'Bebas Neue', cursive;
+  border: none;
+}
+
+/* .drop-container {
   display: flex;
+  background-color: lightgreen;
+  margin: 0 auto;
+  width: 200px;
+  height: 100%;
+} */
+
+.try {
+  width: 150px;
+  margin: 20px;
 }
 
-nav {
-  background-color: lightgoldenrodyellow;
+.drop-content {
+  display: block;
+  background-color: white;
+  min-width: 150px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
 }
+
+.drop-content a {
+  text-decoration: none;
+  color: #757575;
+  display: block;
+  padding: 10px;
+}
+
+.drop-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.drop-container:hover .drop-content {
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
