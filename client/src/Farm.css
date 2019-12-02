@@ -1,0 +1,73 @@
+.single-farm-container {
+    background-color: white;
+    padding: 50px 0;
+}
+
+.farm-data-container {
+    margin: 0 auto;
+    display: flex;
+    font-family: 'Open Sans Condensed', sans-serif;
+    
+}
+
+.farm-img-div {
+    width: 50vw;
+    align-items: center;
+    justify-content: center;
+}
+
+.farm-info-div {
+    width: 50vw;
+    justify-content: center;
+    align-content: center;
+
+}
+
+.farm-name {
+    font-family: 'EB Garamond', serif;
+    font-size: 70px;
+    color: #004d40
+}
+
+.farm-location {
+    font-family: 'EB Garamond', serif;
+    font-size: 50px;
+    color: #004d40
+}
+
+.farm-products-container {
+    background-color: #757575;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* .farm-products-div {
+    padding-top: 50px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0 auto;
+} */
+
+.our-products-div h1 {
+    font-family: 'EB Garamond', serif;
+    font-size: 60px;
+    color: white;
+    border: 2px white solid;
+}
+
+/* .our-products-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60vw;
+    border: 10px white solid;
+    margin: 30px;
+
+} */
+
+.single-product-map {
+    padding-bottom: 50px;
+}

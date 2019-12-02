@@ -1,17 +1,18 @@
 import React, { Component } from 'react'
+import '../Farm.css'
 import axios from 'axios'
 import MapSingleProduct from './MapSingleProduct'
-import { Redirect, Link } from 'react-router-dom' 
+import { Redirect, Link } from 'react-router-dom'
 
 export default class SingleFarm extends Component {
     state = {
-            farmId: '',
-            name: '',
-            description: '',
-            location: '',
-            farm_pic_url: '',
-            products: [],
-        
+        farmId: '',
+        name: '',
+        description: '',
+        location: '',
+        farm_pic_url: '',
+        products: [],
+
         newProduct: {
             name: '',
             description: '',
@@ -36,18 +37,18 @@ export default class SingleFarm extends Component {
     refreshSingleFarm = () => {
         const farmId = this.props.match.params.farmId
         axios.get(`/api/v1/farm/${farmId}`)
-        .then((res) => {
-            console.log(res.data)
-            this.setState({changeFarm: res.data})
-        })
+            .then((res) => {
+                console.log(res.data)
+                this.setState({ changeFarm: res.data })
+            })
     }
-  
+
     onFarmDeleteClick = () => {
         const farmId = this.props.match.params.farmId
         axios.delete(`/api/v1/farm/${farmId}/`)
-        .then(() => {
-            this.setState({redirect : true})
-        })  
+            .then(() => {
+                this.setState({ redirect: true })
+            })
     }
     createNewProduct = (event) => {
         event.preventDefault()
@@ -60,15 +61,15 @@ export default class SingleFarm extends Component {
         // });
         console.log('newProduct', this.state.newProduct)
         axios.post('/api/v1/product/', this.state.newProduct)
-        .then(() => {
-            this.refreshSingleFarm()
-        })
+            .then(() => {
+                this.refreshSingleFarm()
+            })
     }
 
     onCreateProductForm = (event) => {
         const previousState = { ...this.state.newProduct }
         previousState[event.target.name] = event.target.value
-        this.setState({newProduct: previousState})
+        this.setState({ newProduct: previousState })
     }
 
     render() {
@@ -76,93 +77,112 @@ export default class SingleFarm extends Component {
             return <Redirect to="/farm" />
         }
         return (
-            <div>
-                <button><Link to={`/farm/edit/${this.props.match.params.farmId}`}>Edit Farm</Link></button>
-                <button onClick={() => this.onFarmDeleteClick()}>Delete Farm</button>
+            <div className="single-farm-container">
+                <div className="farm-data-container">
+                    <div className="farm-img-div">
+                        <img src={this.state.farm_pic_url} width="700" />
+                    </div>
+                    <div className="farm-info-div">
+                        <h1 className="farm-name">{this.state.name}</h1>
+                        <h1>{this.state.description}</h1>
+                        <h2 className="farm-location">{this.state.location}</h2>
+                    </div>
+                </div>
+                <div className="farm-products-container">
+                    <div className="farm-products-div">
+                        <div className="our-products-div">
+                            <h1 >Our Products</h1>
+                        </div>
+                        <div className="single-product-map">
+                        <MapSingleProduct
+                            farm={this.state}
+                            refreshSingleFarm={this.refreshSingleFarm}
+                        />
+                        </div>
+                        <div className="button-container">
+                        <button>
+                        <h1>Add New Product</h1>
+                        </button>
+                        <div>
+                    <button><Link to={`/farm/edit/${this.props.match.params.farmId}`}>Edit Farm</Link></button>
+                    <button onClick={() => this.onFarmDeleteClick()}>Delete Farm</button>
+                    </div>
+                </div>
 
-
-                <h1>{this.state.name}</h1>
-                <h1>{this.state.description}</h1>
-                <h2>{this.state.location}</h2>
-                <img src={this.state.farm_pic_url} width="200"/>
-                <MapSingleProduct
-                        farm={this.state}
-                        refreshSingleFarm = {this.refreshSingleFarm}
-                    />
-                <h1>Add New Product</h1>
-                <form>
-                <input
-                        type="string"
-                        placeholder="Product Name"
-                        id="name"
-                        value={this.state.newProduct.name}
-                        name="name"
-                        onChange={this.onCreateProductForm}
-                    /> 
-                <input
-                        type="string"
-                        placeholder="Description"
-                        id="description"
-                        value={this.state.newProduct.description}
-                        name="description"
-                        onChange={this.onCreateProductForm}
-                    /> 
-                <input
-                        type="string"
-                        placeholder="Price"
-                        id="price"
-                        value={this.state.newProduct.price}
-                        name="price"
-                        onChange={this.onCreateProductForm}
-                    />
-                <input
-                        type="string"
-                        placeholder="Units"
-                        id="unit"
-                        value={this.state.newProduct.unit}
-                        name="unit"
-                        onChange={this.onCreateProductForm}
-                    /> 
-                <input
-                        type="string"
-                        placeholder="Total Quantity"
-                        id="totalQuantity"
-                        value={this.state.newProduct.total_quantity}
-                        name="total_quantity"
-                        onChange={this.onCreateProductForm}
-                    /> 
-                <input
-                        type="string"
-                        placeholder="Product Pic Url"
-                        id="productPicUrl"
-                        value={this.state.newProduct.product_pic_url}
-                        name="product_pic_url"
-                        onChange={this.onCreateProductForm}
-                    />
-                <input
-                        type="string"
-                        placeholder="Tag"
-                        id="tag"
-                        value={this.state.newProduct.tag}
-                        name="tag"
-                        onChange={this.onCreateProductForm}
-                    />
-                <input
-                        type="string"
-                        placeholder="FarmId"
-                        id="farmId"
-                        value={this.props.match.params.farmId}
-                        name="farm"
-                        onChange={this.onCreateProductForm}
-                    />
-                <input
-                        type="submit"
-                        value="Create New Product"
-                        onClick={this.createNewProduct}
-                    />
-                </form>
-               
-
+                        <form>
+                            <input
+                                type="string"
+                                placeholder="Product Name"
+                                id="name"
+                                value={this.state.newProduct.name}
+                                name="name"
+                                onChange={this.onCreateProductForm}
+                            />
+                            <input
+                                type="string"
+                                placeholder="Description"
+                                id="description"
+                                value={this.state.newProduct.description}
+                                name="description"
+                                onChange={this.onCreateProductForm}
+                            />
+                            <input
+                                type="string"
+                                placeholder="Price"
+                                id="price"
+                                value={this.state.newProduct.price}
+                                name="price"
+                                onChange={this.onCreateProductForm}
+                            />
+                            <input
+                                type="string"
+                                placeholder="Units"
+                                id="unit"
+                                value={this.state.newProduct.unit}
+                                name="unit"
+                                onChange={this.onCreateProductForm}
+                            />
+                            <input
+                                type="string"
+                                placeholder="Total Quantity"
+                                id="totalQuantity"
+                                value={this.state.newProduct.total_quantity}
+                                name="total_quantity"
+                                onChange={this.onCreateProductForm}
+                            />
+                            <input
+                                type="string"
+                                placeholder="Product Pic Url"
+                                id="productPicUrl"
+                                value={this.state.newProduct.product_pic_url}
+                                name="product_pic_url"
+                                onChange={this.onCreateProductForm}
+                            />
+                            <input
+                                type="string"
+                                placeholder="Tag"
+                                id="tag"
+                                value={this.state.newProduct.tag}
+                                name="tag"
+                                onChange={this.onCreateProductForm}
+                            />
+                            <input
+                                type="string"
+                                placeholder="FarmId"
+                                id="farmId"
+                                value={this.props.match.params.farmId}
+                                name="farm"
+                                onChange={this.onCreateProductForm}
+                            />
+                            <input
+                                type="submit"
+                                value="Create New Product"
+                                onClick={this.createNewProduct}
+                            />
+                        </form>
+                    </div>
+                </div>
+                
             </div>
         )
     }
