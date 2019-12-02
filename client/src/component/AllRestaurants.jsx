@@ -15,18 +15,30 @@ export default class AllRestaurants extends Component {
     }
     render() {
         return (
-            <div>
+            <div className="all-list">
+                <div className="all-title-container">
+                    <h1 className="all-title">Our Restaurants</h1>
+                </div>
+                <div className="all-button-container">
                 {this.state.allRestaurants.map((restaurant) => {
                     return (
-                        <div>
+                        <div className="all-list-div">
+                            <div className="all-button-border">
+                            <button className="all-button">
                             <Link to={`/restaurant/${restaurant.id}`}>
                                 <h1>{restaurant.name}</h1>
                             </Link>
+                            </button>
+                        </div>
                         </div>
                     )
                 })}
-                <Link to={'/restaurant/new'}>Add New Restaurant</Link>
-                
+                </div>
+                <div className="add-button-container">
+                <button className="add-button">
+                <Link to={'/restaurant/new'}><h2>Add Restaurant</h2></Link>
+                </button>
+                </div>
             </div>
         )
     }

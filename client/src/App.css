@@ -300,59 +300,5 @@ hr {
 }
 
 
-/* All Farms/ All Restaurants Common Styles */
 
-.all-list {
-  height: 800px;
-  background-color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.all-list-conatianer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  
-}
-
-.all-list a {
-  color: #004d40;
-}
-
-.all-item {
-  margin: 50px auto;
-  border: 15px solid #004d40;
-  margin: 0px 100px 0px 100px;
-  width: 400px;
-  padding: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 300px;
-  height: 200px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-}
-
-
-
-.all-button {
-  background-color: transparent;  
-  /* position: relative; */
-  border: 2px solid #757575;
-  margin: 0px 100px 0px 100px;
-  text-align: left;
-  /* min-height: 125px; */
-  width: 100%;
-  padding: 0px 100px;
-  display: flex;
-}
-
-.all-title {
-  font-family: 'EB Garamond', serif;
-  font-size: 80px;
-  color: #004d40;
-}
 

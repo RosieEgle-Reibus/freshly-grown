@@ -70,7 +70,7 @@ export default class SingleProductPage extends Component {
         return (
             <div className="single-farm-container">
                 <div className="farm-data-container">
-                    {/* <div className="tryit"> */}
+                    <div className="product-center-div">
                     <div className="farm-img-div">
                         <img src={this.state.changeProduct.product_pic_url} width="700" />
                     </div>
@@ -79,7 +79,7 @@ export default class SingleProductPage extends Component {
                         <h2>{this.state.changeProduct.description}</h2>
                         <h2 className="farm-location">${this.state.changeProduct.price}/{this.state.changeProduct.unit}</h2>
                     </div>
-                {/* </div> */}
+                </div>
                 </div>
                 <div className="farm-button-container">
                     <button onClick={this.toggleEditForm}>

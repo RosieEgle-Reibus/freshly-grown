@@ -8,7 +8,7 @@ export default class SingleRestaurant extends Component {
             name: '',
             description: '',
             location: '',
-            farm_pic_url: '',
+            rest_pic_url: '',
             redirect: false
     }
     componentDidMount() {
@@ -31,12 +31,25 @@ export default class SingleRestaurant extends Component {
            return <Redirect to="/restaurant" />
         }
         return (
-            <div>
-               {this.state.name}
-            <Link to={`/restaurant/edit/${this.props.match.params.restaurantId}`}>Edit</Link>
+            <div className="single-farm-container">
+                <div className="farm-data-container">
+                    <div className="farm-img-div">
+                <img src={this.state.rest_pic_url} width="700"/>
+                </div>
+                <div className="farm-info-div">
+               <h1 className="farm-name">{this.state.name}</h1>
+               <h1>{this.state.description}</h1>
+               <h2 className="farm-location">{this.state.location}</h2>
+               </div>
+               </div>
+            <div className="farm-button-container">
+            <button>   
+            <Link to={`/restaurant/edit/${this.props.match.params.restaurantId}`}><h2>Edit</h2></Link>
+            </button>
             <button onClick={() => {
                 this.onRestaurantDeleteClick()
-            }}>Delete Restaurant</button>
+            }}><h2>Delete</h2></button>
+            </div>
             </div>
         )
     }

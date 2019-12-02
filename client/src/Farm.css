@@ -6,20 +6,23 @@
 .farm-data-container {
     margin: 0 auto;
     display: flex;
-    font-family: 'Open Sans Condensed', sans-serif; 
+    justify-content: center;
+    font-family: 'Open Sans Condensed', sans-serif;
+    
 }
 
 .farm-img-div {
-    width: 50vw;
+    width: 700px;
     align-items: center;
     justify-content: center;
-    
+    margin: 20px;
 }
 
 .farm-info-div {
     width: 50vw;
     justify-content: center;
     align-content: center;
+    margin: 20px;
     
 }
 
@@ -105,4 +108,11 @@
 
  .farm-button-container {
      margin: 50px;
+ }
+
+ .product-center-div {
+     padding: 20px;
+     display: flex;
+     justify-content: space-between;
+     
  }
