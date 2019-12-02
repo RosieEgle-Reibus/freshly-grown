@@ -24,6 +24,7 @@ export default class SingleFarm extends Component {
             farm: this.props.match.params.farmId
         },
         redirect: false,
+        showAddForm: false,
     }
     componentDidMount() {
         const farmId = this.props.match.params.farmId
@@ -72,6 +73,11 @@ export default class SingleFarm extends Component {
         this.setState({ newProduct: previousState })
     }
 
+    toggleAddProductForm = () => {
+        const showAddForm = !this.state.showAddForm
+        this.setState({ showAddForm })
+    }
+
     render() {
         if (this.state.redirect === true) {
             return <Redirect to="/farm" />
@@ -88,6 +94,10 @@ export default class SingleFarm extends Component {
                         <h2 className="farm-location">{this.state.location}</h2>
                     </div>
                 </div>
+                <div className="farm-button-container">       
+                    <button><Link to={`/farm/edit/${this.props.match.params.farmId}`}><h2>Edit</h2></Link></button>
+                    <button onClick={() => this.onFarmDeleteClick()}><h2>Delete</h2></button>
+                    </div>
                 <div className="farm-products-container">
                     <div className="farm-products-div">
                         <div className="our-products-div">
@@ -100,15 +110,12 @@ export default class SingleFarm extends Component {
                         />
                         </div>
                         <div className="button-container">
-                        <button>
+                        <button className="show-form-button" onClick={this.toggleAddProductForm}>
                         <h1>Add New Product</h1>
                         </button>
-                        <div>
-                    <button><Link to={`/farm/edit/${this.props.match.params.farmId}`}>Edit Farm</Link></button>
-                    <button onClick={() => this.onFarmDeleteClick()}>Delete Farm</button>
-                    </div>
+                    
                 </div>
-
+                    {this.state.showAddForm ? 
                         <form>
                             <input
                                 type="string"
@@ -179,7 +186,8 @@ export default class SingleFarm extends Component {
                                 value="Create New Product"
                                 onClick={this.createNewProduct}
                             />
-                        </form>
+                        </form> : null }
+
                     </div>
                 </div>
                 

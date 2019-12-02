@@ -16,7 +16,8 @@ export default class SingleProductPage extends Component {
             tag: '',
             farm: ''
         },
-        redirect: false
+        redirect: false,
+        showEdit: false
 
     }
 
@@ -25,7 +26,7 @@ export default class SingleProductPage extends Component {
         axios.get(`/api/v1/product/${productId}`)
             .then((res) => {
                 console.log(res.data)
-                this.setState({changeProduct: res.data})
+                this.setState({ changeProduct: res.data })
             })
     }
     refreshSingleProductPage = () => {
@@ -33,7 +34,7 @@ export default class SingleProductPage extends Component {
         axios.get(`/api/v1/product/${productId}`)
             .then((res) => {
                 console.log(res.data)
-                this.setState({changeProduct: res.data})
+                this.setState({ changeProduct: res.data })
             })
     }
     editSingleProduct = (event) => {
@@ -53,37 +54,58 @@ export default class SingleProductPage extends Component {
     onProductDeleteClick = () => {
         const productId = this.props.match.params.productId
         axios.delete(`/api/v1/product/${productId}`)
-        .then(() => {
-            this.setState({redirect: true})
-        })
-    } 
+            .then(() => {
+                this.setState({ redirect: true })
+            })
+    }
+    toggleEditForm = () => {
+        const showEdit = !this.state.showEdit
+        this.setState({ showEdit })
+    }
+
     render() {
-        if (this.state.redirect === true)  {
+        if (this.state.redirect === true) {
             return <Redirect to={`/farm/${this.state.changeProduct.farm}`} />
         }
         return (
-            <div>
-            <h1>{this.state.changeProduct.name}</h1>
-            <h2>{this.state.changeProduct.description}</h2>
-            <button onClick={() => this.onProductDeleteClick()}>Delete Product</button>
-            <form>
-                <input
+            <div className="single-farm-container">
+                <div className="farm-data-container">
+                    {/* <div className="tryit"> */}
+                    <div className="farm-img-div">
+                        <img src={this.state.changeProduct.product_pic_url} width="700" />
+                    </div>
+                    <div className="product-info-div">
+                        <h1 className="farm-name">{this.state.changeProduct.name}</h1>
+                        <h2>{this.state.changeProduct.description}</h2>
+                        <h2 className="farm-location">${this.state.changeProduct.price}/{this.state.changeProduct.unit}</h2>
+                    </div>
+                {/* </div> */}
+                </div>
+                <div className="farm-button-container">
+                    <button onClick={this.toggleEditForm}>
+                        <h2>Edit</h2>
+                    </button>
+                    <button onClick={() => this.onProductDeleteClick()}><h2>Delete Product</h2></button>
+                </div>
+                {this.state.showEdit ? 
+                <form>
+                    <input
                         type="string"
                         placeholder="Product Name"
                         id="name"
                         value={this.state.changeProduct.name}
                         name="name"
                         onChange={this.onChangeProductForm}
-                    /> 
-                <input
+                    />
+                    <input
                         type="string"
                         placeholder="Description"
                         id="description"
                         value={this.state.changeProduct.description}
                         name="description"
                         onChange={this.onChangeProductForm}
-                    /> 
-                <input
+                    />
+                    <input
                         type="string"
                         placeholder="Price"
                         id="price"
@@ -91,23 +113,23 @@ export default class SingleProductPage extends Component {
                         name="price"
                         onChange={this.onChangeProductForm}
                     />
-                <input
+                    <input
                         type="string"
                         placeholder="Units"
                         id="unit"
                         value={this.state.changeProduct.unit}
                         name="unit"
                         onChange={this.onChangeProductForm}
-                    /> 
-                <input
+                    />
+                    <input
                         type="string"
                         placeholder="Total Quantity"
                         id="totalQuantity"
                         value={this.state.changeProduct.total_quantity}
                         name="total_quantity"
                         onChange={this.onChangeProductForm}
-                    /> 
-                <input
+                    />
+                    <input
                         type="string"
                         placeholder="Product Pic Url"
                         id="productPicUrl"
@@ -115,7 +137,7 @@ export default class SingleProductPage extends Component {
                         name="product_pic_url"
                         onChange={this.onChangeProductForm}
                     />
-                <input
+                    <input
                         type="string"
                         placeholder="Tag"
                         id="tag"
@@ -123,12 +145,12 @@ export default class SingleProductPage extends Component {
                         name="tag"
                         onChange={this.onChangeProductForm}
                     />
-                <input
+                    <input
                         type="submit"
                         value="Save Changes"
                         onClick={this.editSingleProduct}
                     />
-                </form>
+                </form> : null }
 
             </div>
         )
