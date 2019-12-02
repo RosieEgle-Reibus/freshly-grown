@@ -27,12 +27,12 @@ export default class AllFarms extends Component {
     render() {
         return (
             <div className="all-list">
-                <h1>Our Farms</h1>
+                <h1 className="all-title">Our Farms</h1>
                <div className="all-list-conatianer">
                 {this.state.allFarms.map((farm) => {
                     return (
                         <div className="all-item">
-                            <button>
+                            <button className="all-button">
                             <Link to={`/farm/${farm.id}`}>
                                 <h1>{farm.name}</h1>
                             </Link>

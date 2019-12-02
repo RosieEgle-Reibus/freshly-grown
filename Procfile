@@ -1,0 +1,1 @@
+web: gunicorn FRESHLY_GROWN.wsgi --log-file -

@@ -57,7 +57,6 @@ export default class App extends Component {
             </div>
             <div className="bg-image-container">
             <div  className='bg-image'>
-              
             </div>
             </div>
             <div className="drop-contianer"onMouseEnter={this.showMenu} onMouseLeave={this.closeMenu}>
