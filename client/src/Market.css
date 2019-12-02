@@ -14,7 +14,7 @@
     margin: 20px;
 }
 
-form {
+.market-form {
     background-color: #004d40;
     width: 40vw;
     height: 7vw;
@@ -47,3 +47,42 @@ input[type=string] {
     font-family: 'Open Sans Condensed', sans-serif;
     font-weight: 800;
   }
+
+  /* .market-list-div {
+      display: flex;
+      justify-content: center;
+      
+  } */
+
+  .market-map-container {
+    margin-top: 50px;
+  }
+
+  .market-list-container {
+      display: flex; 
+      /* background-color: lightseagreen; */
+      width: 75vw;
+      margin: 10px;
+      justify-content: center;
+      align-items: center;
+
+  }
+
+  .miles-container {
+      width: 20%;
+      /* background-color: lightpink; */
+      font-family: 'Open Sans Condensed', sans-serif;
+  }
+
+  .market-name-container {
+      width: 60%;
+      /* display: flex;
+      justify-content: center; */
+      /* background-color: lightgoldenrodyellow; */
+      font-family: 'EB Garamond', serif;
+      font-size: 24px;
+      color: #004d40;
+      
+  }
+
+

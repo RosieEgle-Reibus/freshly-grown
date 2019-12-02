@@ -39,7 +39,7 @@ export default class InPerson extends Component {
             <div className="market-container">
                 
                 <h1 className="all-title">Find a Market Near You</h1>
-                <form>
+                <form className="market-form">
                     <label for="zip" className="zip-label">Enter Your Zip Code</label>
                     <input
                         type="string"
@@ -55,16 +55,22 @@ export default class InPerson extends Component {
                         onClick={this.searchZip} />
 
                 </form>
-
+                <div className="market-map-container">
                 {this.state.results.map((market) => {
                     return (
-                        <div>
-                            <h1>{this.splitStringMiles(market.marketname)} Miles Away</h1>
+                        
+                        <div className="market-list-container">
+                            <div className="miles-container">
+                            <h1>{this.splitStringMiles(market.marketname)} Miles</h1>
+                            </div>
+                            <div className="market-name-container">
                             <h1>{this.splitStringName(market.marketname)}</h1>
-
+                            </div>
                         </div>
+                        
                     )
                 })}
+                </div>
             </div>
            
         )
