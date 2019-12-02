@@ -24,21 +24,24 @@ export default class AllFarms extends Component {
                 this.setState({ allFarms: res.data })
             })
     }
-
-
     render() {
         return (
-            <div>
-               
+            <div className="all-list">
+                <h1>Our Farms</h1>
+               <div className="all-list-conatianer">
                 {this.state.allFarms.map((farm) => {
                     return (
-                        <div className="App">
+                        <div className="all-item">
+                            <button>
                             <Link to={`/farm/${farm.id}`}>
                                 <h1>{farm.name}</h1>
                             </Link>
-                        </div>
+                            </button>
+                            </div>
+                        
                     )
                 })}
+                </div>
                 <button><Link to='/farm/new'>Add Your Farm</Link></button>
             </div>
         )

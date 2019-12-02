@@ -19,10 +19,12 @@ export default class MapSingleProduct extends Component {
                         <div className="single-product-inner">
                         <div className="single-product-front">
                         <img src={product.product_pic_url}/>
+                        <div className="single-front-container">
                         <Link to={`/product/${product.id}`}>
                         <h1>{product.name}</h1>
                         </Link>
                         <h2>${product.price} / {product.unit}</h2>
+                        </div>
                         </div>
                         <div className="single-product-back">
                         <h1>{product.name}</h1>

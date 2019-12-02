@@ -30,7 +30,7 @@ export default class ShopMain extends Component {
         return (
             <div className="store-container">
                 
-                <div className="parallax">It's a paradox parallax</div>
+                <div className="parallax"></div>
 
 
                  {this.state.allFarms.map((farm) => {

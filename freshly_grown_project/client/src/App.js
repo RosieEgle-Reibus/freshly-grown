@@ -55,16 +55,21 @@ export default class App extends Component {
               <h1 className="header-title">Grown</h1>
             </div>
             </div>
+            <div className="bg-image-container">
+            <div  className='bg-image'>
+              
+            </div>
+            </div>
             <div className="drop-contianer"onMouseEnter={this.showMenu} onMouseLeave={this.closeMenu}>
               <div className="navbar">
               <button className="drop-menu-button" >Menu</button>
               {this.state.showMenu ?
             <div className="drop-content">
-              <Link to={`/farm`}>
-                <h3>Farms</h3>
-              </Link>
               <Link to={`/`}>
                 <h3>Home</h3>
+              </Link>
+              <Link to={`/farm`}>
+                <h3>Farms</h3>
               </Link>
               <Link to={'/restaurant'}><h3>Restaurants</h3></Link>
               <Link to={'/markets'}><h3>Markets</h3></Link>

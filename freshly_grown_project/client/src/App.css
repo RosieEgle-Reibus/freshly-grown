@@ -16,8 +16,8 @@ a {
 
 /* Parallax */
 .parallax {
-  
-  background-image: url('./images/vegetable-trial.jpg');
+  background-color: white;
+  background-image: url('./images/parallax.jpg');
   height: 300px;
   background-position: center;
   background-repeat: no-repeat;
@@ -41,7 +41,8 @@ a {
 header {
   display: flex;
   justify-content: space-between;
-  height: 800px;
+  align-items: center;
+  height: 1000px;
 }
 
 /* Title Styles */
@@ -55,13 +56,47 @@ header {
 
 }
 
+.header-title-container {
+  border: solid 2px white;
+  height: 370px;
+  width: 370px; 
+  margin: 10px;
+}
+
+.bg-image {
+  width: 600px;
+  justify-content: center;
+  padding: 50px;
+  background-image: url('./images/Kale-01.svg');
+  background-repeat: no-repeat;
+  background-size: 600px 600px;
+  max-width: 600px;
+  /* width: 800px;  */
+  border: solid 2px white;
+}
+
+.bg-image-container {
+  border: solid 10px white;
+  width: 600px;
+  height: 600px;
+  margin: 30px auto;
+  padding: 30px;
+  display: flex;
+  /* background-color: lightpink; */
+  justify-content: center;
+  /* align-items: center; */
+}
+
+
+
+
 .title-container {
   display: flex;
   margin: 175px;
   justify-content: center;
   align-items: center; 
   border: solid 10px white;
-  padding: 20px;
+  /* padding: 20px; */
   height: 400px;
   width: 400px; 
 }
@@ -208,7 +243,7 @@ hr {
 }
 
 .single-product-container a {
-  color: #000;
+  color: #272727;
   margin: -50px, auto;
   text-transform: uppercase;
   font-family: 'Open Sans Condensed', sans-serif;
@@ -257,5 +292,55 @@ hr {
   font-size: 36px;
   font-weight: 500;
   align-items: center;
+}
+
+.single-front-container {
+  background-color: white;
+  height: 20%;
+}
+
+
+/* All Farms/ All Restaurants Common Styles */
+
+.all-list {
+  height: 800px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.all-list-conatianer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.all-list a {
+  color: #004d40;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.all-item {
+  margin: 50px auto;
+  border: 5px solid #757575;
+  margin: 0px 100px 0px 100px;
+  width: 400px;
+  min-height: 125px;
+  justify-content: center;
+  align-items: center;
+}
+
+.all-link-container {
+  background-color: lightpink;
+  width: 100%;
+}
+
+.all-button {
+
 }
 
