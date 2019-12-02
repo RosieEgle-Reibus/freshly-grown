@@ -1,1 +1,1 @@
-web: gunicorn FRESHLY_GROWN.wsgi --log-file -
+web: gunicorn freshly_grown_project.wsgi --log-file -
