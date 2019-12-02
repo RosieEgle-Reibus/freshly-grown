@@ -7,6 +7,9 @@
     "react-dom": "^16.12.0",
     "react-scripts": "3.2.0"
   },
+  "engines": {
+    "node": "12.10.0"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -30,3 +33,4 @@
     ]
   }
 }
+
