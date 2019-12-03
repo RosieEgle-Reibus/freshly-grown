@@ -16,4 +16,4 @@ The end users for this app will be both restaurants and farms because the app wi
 ![WireFrameSingle](WireFrame1.jpg)
 ![ERD](ERD.jpg)
 ![Models](Models.jpg)
-![Components](Componenets.jpg)
+![Components](Components.jpg)
