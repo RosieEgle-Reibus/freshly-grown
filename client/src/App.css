@@ -102,10 +102,13 @@ header {
 .drop-menu-button {
   background-color: transparent;
   color: white;
-  padding: 15px;
-  font-size: 36px;
+  padding: 10px;
+  font-size: 48px;
+  width: 150px;
   font-family: 'Bebas Neue', cursive;
-  border: none;
+  border: solid 2px white;
+
+
 }
 
 .navbar {
@@ -156,10 +159,11 @@ header {
   background-color: transparent;
   border: none;  
   position: relative;
-  border: 2px solid white;
+  border: 5px solid white;
   margin: 0px 100px 0px 100px;
   text-align: left;
-  width: 25vw
+  width: 25vw;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 } 
 
 .anim-button a {
@@ -177,8 +181,10 @@ header {
 .anim-button a:hover {
   color: #757575;
   background-color: white;
-  
+ 
 }
+
+
 
 /* .button-horizontal {
   border: 2px solid red;

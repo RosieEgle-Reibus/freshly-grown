@@ -37,13 +37,13 @@ export default class ShopMain extends Component {
             return (
               <div className="farm-map-container">
                 <div className="farm-name-container">
+                <div className="button-outline">
                 <button className="anim-button">
                   <Link to={`/farm/${farm.id}`}>
                   <h1>{farm.name}</h1>
                 </Link>
-                {/* <div className="button-horizontal"></div>
-                <div className="button-vertical"></div> */}
                 </button>
+                </div>
                 <hr></hr>
                 </div>
                 <MapSingleProduct
