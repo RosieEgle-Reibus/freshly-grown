@@ -29,8 +29,12 @@ export default class CreateFarmForm extends Component {
             return <Redirect to='/farm'/>
         }
         return (
-            <div>
+            <div className="form-div">
+                <h1 className="all-title">Create New Farm</h1>
+            <div className="form-container">
                    <form>
+                   <div className="input-container">
+                   <label for="name" className="form-label">Farm Name</label>
                     <input
                         type="string"
                         placeholder="Farm Name"
@@ -39,6 +43,9 @@ export default class CreateFarmForm extends Component {
                         name="name"
                         onChange={this.onChangeFarmForm}
                     />
+                    </div> 
+                    <div className="input-container">
+                    <label for="description" className="form-label">Description of Farm</label>
                     <input
                         type="string"
                         placeholder="Description"
@@ -47,6 +54,9 @@ export default class CreateFarmForm extends Component {
                         name="description"
                         onChange={this.onChangeFarmForm}
                     />
+                    </div> 
+                    <div className="input-container">
+                    <label for="location" className="form-label">Location</label>
                     <input
                         type="string"
                         placeholder="Location"
@@ -55,6 +65,9 @@ export default class CreateFarmForm extends Component {
                         name="location"
                         onChange={this.onChangeFarmForm}
                     />
+                    </div> 
+                    <div className="input-container"> 
+                    <label for="picture" className="form-label">Farm Picture URL</label>  
                     <input
                         type="string"
                         placeholder="Picture URL"
@@ -63,13 +76,17 @@ export default class CreateFarmForm extends Component {
                         name="farm_pic_url"
                         onChange={this.onChangeFarmForm}
                     />
+                    </div>
+                
                     <input
                         type="submit"
                         value="Add New Farm"
                         onClick={this.createNewFarm}
                     />
+                    
                 </form>
                 
+            </div>
             </div>
         )
     }

@@ -24,6 +24,53 @@
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
 
+form {
+    margin-top: 50px;
+    background-color: white;
+    padding: 20px 100px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.form-div {
+    background-color: white;
+    padding: 30px;
+}
+
+.form-container {
+    display: flex;
+    justify-content: center;
+}
+
+.input-container {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin: 10px;
+width: 30vw;
+}
+
+.input-hidden {
+    display: none;
+}
+
+.form-label {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 36px;
+    color: #004d40;
+    font-weight: 800;
+}
+
+input[type=submit] {
+    font-family: 'Open Sans Condensed', sans-serif; 
+    background-color: #004d40; 
+    color: white;
+    padding: 10px;
+    margin: 10px;
+    border: none;
+    font-size: 24px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
 input[type=string] {
     /* width: 30%;
     padding: 10px 5px; */
@@ -35,9 +82,10 @@ input[type=string] {
     text-align: center;
     font-family: 'Open Sans Condensed', sans-serif;
     margin: 10px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   }
 
-  input[type=submit] {
+  .market-form input[type=submit] {
     margin: 10px;;
     padding: 10px;
     border-radius: 2px;

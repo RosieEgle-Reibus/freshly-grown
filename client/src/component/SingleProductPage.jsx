@@ -88,7 +88,10 @@ export default class SingleProductPage extends Component {
                     <button onClick={() => this.onProductDeleteClick()}><h2>Delete Product</h2></button>
                 </div>
                 {this.state.showEdit ? 
+                <div className="form-container">
                 <form>
+                <div className="input-container">
+                <label for="name" className="form-label">Product Name</label>
                     <input
                         type="string"
                         placeholder="Product Name"
@@ -97,6 +100,9 @@ export default class SingleProductPage extends Component {
                         name="name"
                         onChange={this.onChangeProductForm}
                     />
+                    </div>
+                    <div className="input-container">
+                    <label for="description" className="form-label">Description of Product</label>
                     <input
                         type="string"
                         placeholder="Description"
@@ -105,6 +111,9 @@ export default class SingleProductPage extends Component {
                         name="description"
                         onChange={this.onChangeProductForm}
                     />
+                    </div>
+                    <div className="input-container">
+                    <label for="price" className="form-label">Price $</label>
                     <input
                         type="string"
                         placeholder="Price"
@@ -113,6 +122,9 @@ export default class SingleProductPage extends Component {
                         name="price"
                         onChange={this.onChangeProductForm}
                     />
+                    </div>
+                    <div className="input-container">
+                    <label for="unit" className="form-label">Units</label>
                     <input
                         type="string"
                         placeholder="Units"
@@ -121,6 +133,8 @@ export default class SingleProductPage extends Component {
                         name="unit"
                         onChange={this.onChangeProductForm}
                     />
+                    </div>
+                    {/* <div className="input-container">
                     <input
                         type="string"
                         placeholder="Total Quantity"
@@ -129,6 +143,9 @@ export default class SingleProductPage extends Component {
                         name="total_quantity"
                         onChange={this.onChangeProductForm}
                     />
+                    </div> */}
+                    <div className="input-container">
+                    <label for="productPicUrl" className="form-label">Product Picture URL</label> 
                     <input
                         type="string"
                         placeholder="Product Pic Url"
@@ -137,6 +154,8 @@ export default class SingleProductPage extends Component {
                         name="product_pic_url"
                         onChange={this.onChangeProductForm}
                     />
+                    </div>
+                    {/* <div className="input-container">
                     <input
                         type="string"
                         placeholder="Tag"
@@ -145,12 +164,14 @@ export default class SingleProductPage extends Component {
                         name="tag"
                         onChange={this.onChangeProductForm}
                     />
+                    </div> */}
                     <input
                         type="submit"
                         value="Save Changes"
                         onClick={this.editSingleProduct}
                     />
-                </form> : null }
+                </form>
+                </div> : null }
 
             </div>
         )

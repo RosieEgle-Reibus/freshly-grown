@@ -32,8 +32,12 @@ export default class CreateRestaurantForm extends Component {
             return <Redirect to='/restaurant' />
         }
         return (
-            <div>
+            <div className="form-div">
+                <h1 className="all-title">Create New Restaurant</h1>
+            <div className="form-container">
                 <form>
+                <div className="input-container">
+                <label for="name" className="form-label">Restaurant Name</label>
                 <input
                         type="string"
                         placeholder="Restaurant Name"
@@ -42,6 +46,9 @@ export default class CreateRestaurantForm extends Component {
                         name="name"
                         onChange={this.onChangeRestaurantForm}
                     />
+                    </div>
+                    <div className="input-container">
+                    <label for="description" className="form-label">Descritpion</label>
                 <input
                         type="string"
                         placeholder="Description"
@@ -50,14 +57,20 @@ export default class CreateRestaurantForm extends Component {
                         name="description"
                         onChange={this.onChangeRestaurantForm}
                     />
+                    </div>
+                    <div className="input-container">
+                    <label for="location" className="form-label">Location</label>
                 <input
                         type="string"
                         placeholder="Location"
-                        id="name"
+                        id="location"
                         value={this.state.newRestaurant.location}
                         name="location"
                         onChange={this.onChangeRestaurantForm}
                     />
+                    </div>
+                    <div className="input-container">
+                    <label for="restPicUrl" className="form-label">Picture URL</label>
                 <input
                         type="string"
                         placeholder="Restaurant Pic Url"
@@ -66,6 +79,7 @@ export default class CreateRestaurantForm extends Component {
                         name="rest_pic_url"
                         onChange={this.onChangeRestaurantForm}
                     />
+                    </div>
                 <input
                         type="submit"
                         value="Add Your Restaurant"
@@ -73,6 +87,7 @@ export default class CreateRestaurantForm extends Component {
                     />
                 </form>
                 
+            </div>
             </div>
         )
     }

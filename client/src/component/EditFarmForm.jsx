@@ -41,9 +41,12 @@ export default class EditFarmForm extends Component {
             return <Redirect to={`/farm/${this.props.match.params.farmId}`}/>
         }
         return (
-            <div>
-                 <h1>Update Farm Info</h1>
+            <div className="form-div">
+                 <h1 className="all-title">Update Farm Info</h1>
+                 <div className="form-container">
                 <form >
+                <div className="input-container">
+                <label for="name" className="form-label">Farm Name</label>
                 <input
                         type="string"
                         placeholder={this.state.name}
@@ -52,6 +55,9 @@ export default class EditFarmForm extends Component {
                         name="name"
                         onChange={this.onChangeFarmForm}
                     />
+                    </div>
+                    <div className="input-container">
+                    <label for="description" className="form-label">Description of Farm</label>
                     <input
                         type="string"
                         placeholder={this.state.description}
@@ -60,6 +66,9 @@ export default class EditFarmForm extends Component {
                         name="description"
                         onChange={this.onChangeFarmForm}
                     />
+                    </div>
+                    <div className="input-container">
+                    <label for="location" className="form-label">Location</label> 
                     <input
                         type="string"
                         placeholder={this.state.location}
@@ -68,6 +77,9 @@ export default class EditFarmForm extends Component {
                         name="location"
                         onChange={this.onChangeFarmForm}
                     />
+                    </div>
+                    <div className="input-container">
+                    <label for="picture" className="form-label">Farm Picture URL</label> 
                     <input
                         type="string"
                         placeholder={this.state.farm_pic_url}
@@ -76,13 +88,14 @@ export default class EditFarmForm extends Component {
                         name="farm_pic_url"
                         onChange={this.onChangeFarmForm}
                     />
+                    </div>
                     <input
                         type="submit"
                         value="Save Changes"
                         onClick={this.changeSingleFarm}
                     />
                 </form>
-                
+                </div>  
             </div>
         )
     }
