@@ -162,7 +162,7 @@ export default class SingleFarm extends Component {
                                 onChange={this.onCreateProductForm}
                             />
                             </div>
-                            {/* <div className="input-container">
+                            <div className="input-container">
                             <label for="totalQuantity" className="form-label">Total Quantity</label>
                             <input
                                 type="string"
@@ -172,7 +172,7 @@ export default class SingleFarm extends Component {
                                 name="total_quantity"
                                 onChange={this.onCreateProductForm}
                             />
-                            </div> */}
+                            </div>
                             <div className="input-container">
                             <label for="productPicUrl" className="form-label">Product Picture URL</label>  
                             <input
@@ -184,7 +184,8 @@ export default class SingleFarm extends Component {
                                 onChange={this.onCreateProductForm}
                             />
                             </div>
-                            {/* <div className="input-container">
+                            <div className="input-container">
+                            <label for="tag" className="form-label">Tag</label>
                             <input
                                 type="string"
                                 placeholder="Tag"
@@ -193,7 +194,7 @@ export default class SingleFarm extends Component {
                                 name="tag"
                                 onChange={this.onCreateProductForm}
                             />
-                            </div> */}
+                            </div>
                             <div className="input-hidden">
                             <input
                                 type="string"
